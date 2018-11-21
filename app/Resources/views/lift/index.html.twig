@@ -69,8 +69,11 @@
         $(document).ready(function () {
             var $table = $('.js-rep-log-table');
 
-            $table.find('.js-delete-rep-log').on('click', function () {
+            $table.find('.js-delete-rep-log').on('click', function (e) {
                 console.log('todo delete');
+
+                e.preventDefault();
+                e.stopPropagation();
             });
 
             $table.find('tbody tr').on('click', function () {
