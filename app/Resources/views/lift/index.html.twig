@@ -72,8 +72,12 @@
 
             $table.find('.js-delete-rep-log').on('click', function (e) {
                 console.log('todo delete');
-                console.dir(this);
+                console.dir($(this).find('.fa')[0]);
                 $(this).addClass('text-danger');
+                $(this).find('.fa')
+                    .removeClass('fa-trash')
+                    .addClass('fa-spinner')
+                    .addClass('fa-spin');
                 //e.target.className = e.target.className + ' text-danger';
 
                 e.preventDefault();
