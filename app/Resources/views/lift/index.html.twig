@@ -28,6 +28,7 @@
                         <td>
                             <a href="#" class="js-delete-rep-log">
                                 <span class="fa fa-trash"></span>
+                                Delete
                             </a>
                         </td>
                     </tr>
@@ -71,8 +72,8 @@
 
             $table.find('.js-delete-rep-log').on('click', function (e) {
                 console.log('todo delete');
-                console.dir(e.target);
-                $(e.target).addClass('text-danger');
+                console.dir(e.currentTarget);
+                $(e.currentTarget).addClass('text-danger');
                 //e.target.className = e.target.className + ' text-danger';
 
                 e.preventDefault();
