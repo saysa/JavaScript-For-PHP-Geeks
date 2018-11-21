@@ -71,6 +71,7 @@
 
             $table.find('.js-delete-rep-log').on('click', function (e) {
                 console.log('todo delete');
+                $(e.target).addClass('text-danger');
 
                 e.preventDefault();
                 e.stopPropagation();
