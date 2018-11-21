@@ -72,8 +72,8 @@
 
             $table.find('.js-delete-rep-log').on('click', function (e) {
                 console.log('todo delete');
-                console.dir(e.currentTarget);
-                $(e.currentTarget).addClass('text-danger');
+                console.dir(this);
+                $(this).addClass('text-danger');
                 //e.target.className = e.target.className + ' text-danger';
 
                 e.preventDefault();
