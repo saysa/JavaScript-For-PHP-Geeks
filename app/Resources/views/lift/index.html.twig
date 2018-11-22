@@ -70,8 +70,8 @@
     {{ parent() }}
     <script>
         var RepLogApp = {
-            initialize: function () {
-
+            initialize: function ($wrapper) {
+                this.$wrapper = $wrapper;
             }
         };
 
