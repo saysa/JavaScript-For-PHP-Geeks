@@ -72,13 +72,12 @@
         var RepLogApp = {
             initialize: function ($wrapper) {
                 this.$wrapper = $wrapper;
-            }
-        };
 
-        $(document).ready(function () {
-            var $table = $('.js-rep-log-table');
+                this.$wrapper.find('.js-delete-rep-log').on('click', this.handleRepLogDelete);
 
-            $table.find('.js-delete-rep-log').on('click', function (e) {
+                this.$wrapper.find('.tbody tr').on('click', this.handleRowClick);
+            },
+            handleRepLogDelete: function (e) {
                 console.log('todo delete');
                 console.dir($(this).find('.fa')[0]);
                 $(this).addClass('text-danger');
@@ -105,11 +104,16 @@
 
                 e.preventDefault();
                 e.stopPropagation();
-            });
-
-            $table.find('tbody tr').on('click', function () {
+            },
+            handleRowClick: function () {
                 console.log('tr clicked');
-            });
+            }
+        };
+
+        $(document).ready(function () {
+            var $table = $('.js-rep-log-table');
+
+
         });
     </script>
 {% endblock %}
