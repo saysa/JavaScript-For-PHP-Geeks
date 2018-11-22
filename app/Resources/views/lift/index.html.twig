@@ -82,8 +82,17 @@
                     .addClass('fa-spin');
                 //e.target.className = e.target.className + ' text-danger';
 
+                var $row = $(this).closest('tr');
                 var deleteUrl = $(this).data('url');
                 //console.dir($(this)[0].dataset); // DOM version to retrieve data-attribute
+
+                $.ajax({
+                    url: deleteUrl,
+                    method: 'DELETE',
+                    success: function () {
+                        $row.fadeOut();
+                    }
+                });
 
                 e.preventDefault();
                 e.stopPropagation();
