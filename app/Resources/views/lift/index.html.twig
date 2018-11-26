@@ -88,7 +88,7 @@
                 //e.target.className = e.target.className + ' text-danger';
 
                 var $row = $(this).closest('tr');
-                var $totalWeightContainer = this.$wrapper.find('.js-total-weight');
+                var $totalWeightContainer = RepLogApp.$wrapper.find('.js-total-weight');
                 var newWeight = $totalWeightContainer.html() - $row.data('weight');
                 var deleteUrl = $(this).data('url');
                 //console.dir($(this)[0].dataset); // DOM version to retrieve data-attribute
