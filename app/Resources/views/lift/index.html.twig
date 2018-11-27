@@ -107,6 +107,15 @@
             },
             handleRowClick: function () {
                 console.log('tr clicked');
+            },
+            updateTotalWeightLifted: function () {
+                var totalWeight = 0;
+
+                this.$wrapper.find('tbody tr').each(function () {
+                    totalWeight += $(this).data('weight');
+                });
+
+                this.$wrapper.find('.js-total-weight').html(totalWeight);
             }
         };
 
