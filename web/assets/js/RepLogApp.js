@@ -1,4 +1,4 @@
-(function () {
+(function (window, $) {
 
 window.RepLogApp = {
     initialize: function ($wrapper) {
@@ -76,4 +76,4 @@ var Private = {
     }
 };
 
-})();
+})(window, jQuery);
