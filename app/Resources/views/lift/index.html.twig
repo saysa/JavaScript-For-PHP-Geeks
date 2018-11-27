@@ -97,7 +97,10 @@
                     url: deleteUrl,
                     method: 'DELETE',
                     success: function () {
-                        $row.fadeOut();
+                        $row.fadeOut('normal', function () {
+                            $row.remove();
+                            RepLogApp.updateTotalWeightLifted();
+                        });
                         $totalWeightContainer.html(newWeight);
                     }
                 });
