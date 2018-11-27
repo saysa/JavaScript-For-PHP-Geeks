@@ -73,7 +73,7 @@
             initialize: function ($wrapper) {
                 this.$wrapper = $wrapper;
 
-                this.$wrapper.find('.js-delete-rep-log').on('click', this.handleRepLogDelete);
+                this.$wrapper.find('.js-delete-rep-log').on('click', this.handleRepLogDelete.bind(this));
 
                 this.$wrapper.find('.tbody tr').on('click', this.handleRowClick);
 
@@ -85,19 +85,23 @@
                 console.log(this, greeting);
             },
             handleRepLogDelete: function (e) {
+
+                var $link = $(e.currentTarget);
+
                 console.log('todo delete');
-                console.dir($(this).find('.fa')[0]);
-                $(this).addClass('text-danger');
-                $(this).find('.fa')
+                console.dir($link.find('.fa')[0]);
+
+                $link.addClass('text-danger');
+                $link.find('.fa')
                     .removeClass('fa-trash')
                     .addClass('fa-spinner')
                     .addClass('fa-spin');
                 //e.target.className = e.target.className + ' text-danger';
 
-                var $row = $(this).closest('tr');
+                var $row = $link.closest('tr');
                 var $totalWeightContainer = RepLogApp.$wrapper.find('.js-total-weight');
                 var newWeight = $totalWeightContainer.html() - $row.data('weight');
-                var deleteUrl = $(this).data('url');
+                var deleteUrl = $link.data('url');
                 //console.dir($(this)[0].dataset); // DOM version to retrieve data-attribute
 
                 $.ajax({
