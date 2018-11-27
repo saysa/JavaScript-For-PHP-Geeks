@@ -1,6 +1,7 @@
 var RepLogApp = {
     initialize: function ($wrapper) {
         this.$wrapper = $wrapper;
+        Private.initialize(this.$wrapper);
 
         this.$wrapper.find('.js-delete-rep-log').on('click', this.handleRepLogDelete.bind(this));
 
@@ -49,12 +50,26 @@ var RepLogApp = {
         console.log('tr clicked');
     },
     updateTotalWeightLifted: function () {
+        this.$wrapper.find('.js-total-weight').html(
+            Private.calculateTotalWeight()
+        );
+    }
+};
+
+/**
+ * Simulates the private parts of a PHP object
+ */
+var Private = {
+    initialize: function ($wrapper) {
+        this.$wrapper = $wrapper;
+    },
+    calculateTotalWeight: function () {
         var totalWeight = 0;
 
         this.$wrapper.find('tbody tr').each(function () {
             totalWeight += $(this).data('weight');
         });
 
-        this.$wrapper.find('.js-total-weight').html(totalWeight);
+        return totalWeight;
     }
 };
