@@ -1,4 +1,5 @@
 (function (window, $) {
+'use strict';
 
 window.RepLogApp = {
     initialize: function ($wrapper) {
