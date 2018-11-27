@@ -101,16 +101,15 @@
                 var $row = $link.closest('tr');
                 var deleteUrl = $link.data('url');
                 //console.dir($(this)[0].dataset); // DOM version to retrieve data-attribute
-
+                var self = this;
                 $.ajax({
                     url: deleteUrl,
                     method: 'DELETE',
                     success: function () {
                         $row.fadeOut('normal', function () {
                             $(this).remove(); // $row.remove() is equivalent
-                            RepLogApp.updateTotalWeightLifted();
+                            self.updateTotalWeightLifted();
                         });
-                        RepLogApp.updateTotalWeightLifted();
                     }
                 });
 
