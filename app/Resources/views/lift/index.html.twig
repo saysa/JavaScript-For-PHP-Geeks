@@ -76,6 +76,13 @@
                 this.$wrapper.find('.js-delete-rep-log').on('click', this.handleRepLogDelete);
 
                 this.$wrapper.find('.tbody tr').on('click', this.handleRowClick);
+
+                var my_object = {cat: 'meow', dog: 'woof'};
+                this.whatIsThis.call(my_object, 'my_object');
+                this.whatIsThis('hello');
+            },
+            whatIsThis: function(greeting) {
+                console.log(this, greeting);
             },
             handleRepLogDelete: function (e) {
                 console.log('todo delete');
