@@ -1,4 +1,6 @@
-var RepLogApp = {
+(function () {
+
+window.RepLogApp = {
     initialize: function ($wrapper) {
         this.$wrapper = $wrapper;
         Private.initialize(this.$wrapper);
@@ -73,3 +75,5 @@ var Private = {
         return totalWeight;
     }
 };
+
+})();
