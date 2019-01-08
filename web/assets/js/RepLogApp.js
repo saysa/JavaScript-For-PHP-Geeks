@@ -1,22 +1,17 @@
 (function (window, $) {
 'use strict';
 
-window.RepLogApp = {
-    initialize: function ($wrapper) {
-        this.$wrapper = $wrapper;
-        Private.initialize(this.$wrapper);
+window.RepLogApp = function($wrapper) {
+    this.$wrapper = $wrapper;
+    this.private = new Private(this.$wrapper);
 
-        this.$wrapper.find('.js-delete-rep-log').on('click', this.handleRepLogDelete.bind(this));
+    this.$wrapper.find('.js-delete-rep-log').on('click', this.handleRepLogDelete.bind(this));
 
-        this.$wrapper.find('.tbody tr').on('click', this.handleRowClick);
+    this.$wrapper.find('.tbody tr').on('click', this.handleRowClick);
+};
 
-        var my_object = {cat: 'meow', dog: 'woof'};
-        this.whatIsThis.call(my_object, 'my_object');
-        this.whatIsThis('hello');
-    },
-    whatIsThis: function(greeting) {
-        console.log(this, greeting);
-    },
+$.extend(window.RepLogApp.prototype, {
+
     handleRepLogDelete: function (e) {
 
         var $link = $(e.currentTarget);
@@ -54,18 +49,19 @@ window.RepLogApp = {
     },
     updateTotalWeightLifted: function () {
         this.$wrapper.find('.js-total-weight').html(
-            Private.calculateTotalWeight()
+            this.private.calculateTotalWeight()
         );
     }
-};
+});
 
 /**
  * Simulates the private parts of a PHP object
  */
-var Private = {
-    initialize: function ($wrapper) {
-        this.$wrapper = $wrapper;
-    },
+var Private = function ($wrapper) {
+    this.$wrapper = $wrapper;
+};
+
+$.extend(Private.prototype, {
     calculateTotalWeight: function () {
         var totalWeight = 0;
 
@@ -75,6 +71,6 @@ var Private = {
 
         return totalWeight;
     }
-};
+});
 
 })(window, jQuery);
